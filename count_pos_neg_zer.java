@@ -1,40 +1,34 @@
 import java.util.Scanner;
-
-public class count_pos_neg_zer {
- public static void main(String args[]) {
-    
-    Scanner scan = new Scanner(System.in);
-    
-    int userinput;
-    int countpos = 0, countneg = 0, countzer = 0;
-    char yes = 'Y';
-    
-      for(int i = 0; 'Y' == yes; i++) {
-          System.out.print("Enter number: ");
-            userinput = scan.nextInt();
-          System.out.println("Do you want to repeat? [Y], [N}");
-          System.out.print("Answer: ");
-            yes = scan.next().charAt(0);
-            
-            if (userinput == 0) {
-                userinput = countzer;
-                countzer++;
-            }   
-            if (userinput > 0) {
-                userinput = countpos;
-                countpos++;
-            }    
-            if (userinput < 0) {
-                userinput = countneg;
-                countneg++;
-            }    
+public class MyClass {
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
         
- 
-       
-      }
-       System.out.println("Positive: " + countpos);
-       System.out.println("Negative: " + countneg);
-       System.out.println("Zero: " + countzer);
-      
- }
+        int num;
+        int zero = 0;
+        int positive = 0;
+        int negative = 0;
+        
+        char action;
+        
+        for(int i = 0; i >= 0; i++) {
+            
+            System.out.print("\nInput number: ");
+            num = scan.nextInt();
+            
+            if (num == 0) zero++;
+            if (num > 0) positive++;
+            if (num < 0) negative++;
+            
+            System.out.print("Continue (Y/N)? ");
+            action = Character.toUpperCase(scan.next().charAt(0));
+            
+            if (action == 'N') {
+                System.out.println("\n--- Output ---");
+                System.out.println("Zeros: " + zero);
+                System.out.println("Positive: " + positive);
+                System.out.println("Negative: " + negative);
+                break;
+            }
+        }
+    }
 }
